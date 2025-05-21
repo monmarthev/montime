@@ -1,33 +1,51 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Télécharger un fichier</title>
-  <style>
-    .download-btn {
-      background-color: #4CAF50;
-      color: white;
-      padding: 12px 20px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    .download-btn:hover {
-      background-color: #45a049;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MonTime</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
 </head>
 <body>
+  <header>
+    <img src="assets/logo.svg" alt="Logo MonTime" class="logo" />
+    <div class="title-block">
+      <h1>MonTime</h1>
+      <p class="subtitle">Le timer Pomodoro minimaliste.</p>
+    </div>
+  </header>
 
-  <a href="mon-fichier.pdf" download>
-    <button class="download-btn">Télécharger le fichier</button>
+  <main>
+    <section class="feature">
+      <div class="media-placeholder"></div>
+      <div class="text">
+        <h2>Fonctionnalité 1</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti.</p>
+      </div>
+    </section>
+
+    <section class="feature reverse">
+      <div class="media-placeholder"></div>
+      <div class="text">
+        <h2>Fonctionnalité 2</h2>
+        <p>Nulla facilisi. Aenean nec libero nec nulla porta ullamcorper sit amet nec risus.</p>
+      </div>
+    </section>
+
+    <section class="feature">
+      <div class="media-placeholder"></div>
+      <div class="text">
+        <h2>Fonctionnalité 3</h2>
+        <p>Integer feugiat, orci at porttitor egestas, massa sem sodales augue, id porta ex justo et urna.</p>
+      </div>
+    </section>
+  </main>
+
+  <a href="https://github.com/ton-user/montime/releases/download/v1.0/MonTime.dmg" class="download-btn">
+    Download MonTime
   </a>
-
 </body>
 </html>
