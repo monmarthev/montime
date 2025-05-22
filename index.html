@@ -39,7 +39,7 @@
             background-color: #2980b9;
         }
 
-        .rectangle {
+        .content {
             width: 0;
             height: 100px;
             background-color: #e74c3c;
@@ -53,18 +53,18 @@
             font-weight: bold;
         }
 
-        .rectangle.show {
+        .content.show {
             width: 150px;
             margin-left: 10px;
         }
 
-        .rectangle-content {
+        .rectangle {
             white-space: nowrap;
             opacity: 0;
             transition: opacity 0.3s ease 0.2s;
         }
 
-        .rectangle.show .rectangle-content {
+        .content.show .rectangle-content {
             opacity: 1;
         }
     </style>
@@ -75,8 +75,8 @@
             <img src="arrow.svg" alt="Arrow" style="width: 50px; height: 50px;">
         </div>
         <div class="content" id="content">
-            <div class="rectangle-content">Rectangle</div>
-            <div class="rectangle-content">Rectangle</div>
+            <div class="rectangle">Rectangle</div>
+            <div class="rectangle">Rectangle</div>
         </div>
     </div>
 
