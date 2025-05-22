@@ -27,13 +27,17 @@
             height: 100px;
             background-color: #3498db;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.5s ease;
             display: flex;
             justify-content: center;
             align-items: center;
             color: white;
             font-weight: bold;
             border-radius: 8px;
+        }
+
+        .square.rotated {
+            transform: rotate(180deg);
         }
 
         .square:hover {
@@ -83,7 +87,10 @@
     <script>
         function toggleRectangle() {
             const rectangle = document.getElementById('rectangle');
+            const square = document.querySelector('.square');
+            
             rectangle.classList.toggle('show');
+            square.classList.toggle('rotated');
         }
     </script>
 </body>
