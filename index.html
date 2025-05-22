@@ -10,7 +10,7 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                background-color: #f0f0f0;
+                background-color: #333333;
                 font-family: Inter, sans-serif;
             }
 
@@ -24,19 +24,25 @@
                 height: 50px;
                 cursor: pointer;
                 transition:
-                    background-color 0.3s ease,
-                    transform 0.5s ease;
+                    transform 0.5s ease,
+                    opacity 0.3s ease;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                color: white;
+                color: #ff453a;
+                opacity: 1;
                 font-weight: bold;
                 border-radius: 8px;
             }
 
-            .square img {
+            .square:hover {
+                opacity: 0.5;
+            }
+
+            .square svg {
                 width: 50px;
                 height: 50px;
+                transition: opacity 0.3s ease;
             }
 
             .square.rotated {
@@ -44,9 +50,10 @@
             }
 
             .rectangle {
+                position: relative;
                 width: 0;
                 height: 50px;
-                background-color: #e74c3c;
+                opacity: 1;
                 transition:
                     width 0.5s ease,
                     margin-left 0.5s ease;
@@ -56,14 +63,31 @@
                 justify-content: center;
                 align-items: center;
                 color: white;
+                text-decoration: none; /* Enlève soulignement sur lien */
             }
 
-            .rectangle.show {
-                width: 150px;
-                margin-left: 10px;
+            .rectangle::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background-color: #e74c3c;
+                border-radius: 8px;
+                z-index: 0;
+                opacity: 1;
+                transition:
+                    opacity 0.3s ease,
+                    transform 0.3s ease;
+                transform: scale(1);
+            }
+
+            .rectangle:hover::before {
+                opacity: 0.5;
+                transform: scale(0.97);
             }
 
             .rectangle-content {
+                position: relative;
+                z-index: 1;
                 white-space: nowrap;
                 opacity: 0;
                 transition: opacity 0.3s ease 0.2s;
@@ -74,14 +98,15 @@
                 align-items: start;
             }
 
-            .rectangle-content a {
-                text-decoration: none;
-                color: white;
+            .rectangle.show {
+                width: 150px;
+                margin-left: 10px;
             }
 
             .rectangle-content p {
                 margin: 0;
                 font-weight: bold;
+                color: white;
             }
 
             .rectangle-content .caption {
@@ -89,6 +114,7 @@
                 opacity: 0.8;
                 margin-top: 2px;
                 font-weight: normal;
+                color: white;
             }
 
             .rectangle.show .rectangle-content {
@@ -99,19 +125,62 @@
     <body>
         <div class="container">
             <div class="square" onclick="toggleRectangle()">
-                <img src="arrow.svg" alt="Download" />
+                <svg
+                    class="arrow-icon"
+                    width="50"
+                    height="76.5"
+                    viewBox="0 0 213 326"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <circle
+                        cx="106.066"
+                        cy="106.066"
+                        r="35"
+                        transform="rotate(45 106.066 106.066)"
+                        fill="currentColor"
+                    />
+                    <circle
+                        cx="49.4976"
+                        cy="49.4975"
+                        r="35"
+                        transform="rotate(45 49.4976 49.4975)"
+                        fill="currentColor"
+                    />
+                    <circle
+                        cx="162.635"
+                        cy="162.635"
+                        r="35"
+                        transform="rotate(45 162.635 162.635)"
+                        fill="currentColor"
+                    />
+                    <circle
+                        cx="106.066"
+                        cy="219.066"
+                        r="35"
+                        transform="rotate(-45 106.066 219.066)"
+                        fill="currentColor"
+                    />
+                    <circle
+                        cx="49.4975"
+                        cy="275.635"
+                        r="35"
+                        transform="rotate(-45 49.4975 275.635)"
+                        fill="currentColor"
+                    />
+                </svg>
             </div>
-            <div class="rectangle" id="rectangle">
+            <a
+                href="https://github.com/monmarthev/montime/releases/download/app/montime.v1.0.zip"
+                target="_blank"
+                class="rectangle"
+                id="rectangle"
+            >
                 <div class="rectangle-content">
-                    <a
-                        href="https://github.com/monmarthev/montime/releases/download/app/montime.v1.0.zip"
-                        target="_blank"
-                    >
-                        <p>Download</p>
-                        <p class="caption">MonTime v1.0</p>
-                    </a>
+                    <p>Download</p>
+                    <p class="caption">MonTime v1.0</p>
                 </div>
-            </div>
+            </a>
         </div>
 
         <script>
