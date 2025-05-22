@@ -1,93 +1,123 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MonTime</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #ffffff;
-            font-family: Inter, sans-serif;
-        }
+    <head>
+        <title>MonTime</title>
+        <link rel="icon" href="favicon.ico" type="image/x-icon" />
+        <style>
+            body {
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #f0f0f0;
+                font-family: Inter, sans-serif;
+            }
 
-        .container {
-            display: flex;
-            align-items: center;
-            gap: 0;
-        }
+            .container {
+                display: flex;
+                align-items: center;
+            }
 
-        .button {
-            width: 50px;
-            height: 50px;
-            background-color: #3498db;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.5s ease;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-        }
+            .square {
+                width: 50px;
+                height: 50px;
+                cursor: pointer;
+                transition:
+                    background-color 0.3s ease,
+                    transform 0.5s ease;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: white;
+                font-weight: bold;
+                border-radius: 8px;
+            }
 
-        .button.rotated {
-            transform: rotate(-180deg);
-        }
+            .square img {
+                width: 50px;
+                height: 50px;
+            }
 
-        .button:hover {
-            background-color: #2980b9;
-        }
+            .square.rotated {
+                transform: rotate(-180deg);
+            }
 
-        .content {
-            width: 0;
-            height: 100px;
-            background-color: #e74c3c;
-            transition: width 0.5s ease, margin-left 0.5s ease;
-            overflow: hidden;
-            border-radius: 8px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-weight: bold;
-        }
+            .rectangle {
+                width: 0;
+                height: 50px;
+                background-color: #e74c3c;
+                transition:
+                    width 0.5s ease,
+                    margin-left 0.5s ease;
+                overflow: hidden;
+                border-radius: 8px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: white;
+            }
 
-        .content.show {
-            width: 150px;
-            margin-left: 10px;
-        }
+            .rectangle.show {
+                width: 150px;
+                margin-left: 10px;
+            }
 
-        .rectangle {
-            white-space: nowrap;
-            opacity: 0;
-            transition: opacity 0.3s ease 0.2s;
-        }
+            .rectangle-content {
+                white-space: nowrap;
+                opacity: 0;
+                transition: opacity 0.3s ease 0.2s;
+                display: flex;
+                flex-direction: column;
+                line-height: 1;
+                gap: 0;
+                align-items: start;
+            }
 
-        .content.show .rectangle-content {
-            opacity: 1;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="button" onclick="toggleRectangle()">
-            <img src="arrow.svg" alt="Arrow" style="width: 50px; height: 50px;">
+            .rectangle-content a {
+                text-decoration: none;
+                color: white;
+            }
+
+            .rectangle-content p {
+                margin: 0;
+                font-weight: bold;
+            }
+
+            .rectangle-content .caption {
+                font-size: 0.75em;
+                opacity: 0.8;
+                margin-top: 2px;
+                font-weight: normal;
+            }
+
+            .rectangle.show .rectangle-content {
+                opacity: 1;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="square" onclick="toggleRectangle()">
+                <img src="arrow.svg" alt="Download" />
+            </div>
+            <div class="rectangle" id="rectangle">
+                <div class="rectangle-content">
+                    <a href="test.zip" download>
+                        <p>Download</p>
+                        <p class="caption">MonTime v1.0</p>
+                    </a>
+                </div>
+            </div>
         </div>
-        <div class="content" id="content">
-            <div class="rectangle">Rectangle</div>
-            <div class="rectangle">Rectangle</div>
-        </div>
-    </div>
 
-    <script>
-        function toggleRectangle() {
-            const content = document.getElementById('content');
-            const button = document.querySelector('.button');
-            
-            content.classList.toggle('show');
-            button.classList.toggle('rotated');
-        }
-    </script>
-</body>
+        <script>
+            function toggleRectangle() {
+                const rectangle = document.getElementById("rectangle");
+                const square = document.querySelector(".square");
+
+                rectangle.classList.toggle("show");
+                square.classList.toggle("rotated");
+            }
+        </script>
+    </body>
 </html>
