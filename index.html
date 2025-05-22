@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Box centrée avec carré</title>
+  <title>Box centrée avec transition</title>
   <style>
     html, body {
       height: 100%;
@@ -10,6 +10,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      background: #ffffff;
     }
 
     .box {
@@ -27,30 +28,42 @@
       height: 100px;
       background: red;
       margin-right: 10px;
+      transition: transform 0.4s ease;
+    }
+
+    .square.rotated {
+      transform: rotate(180deg);
     }
 
     .rectangle {
       width: 150px;
       height: 100px;
       background: blue;
+      opacity: 0;
+      transform: scaleX(0);
+      transition: opacity 0.4s ease, transform 0.4s ease;
     }
 
-    .hidden {
-      display: none;
+    .rectangle.visible {
+      opacity: 1;
+      transform: scaleX(1);
     }
   </style>
 </head>
 <body>
 
-  <div class="box" onclick="toggleRectangle()">
-    <div class="square"></div>
-    <div class="rectangle hidden" id="rectangle"></div>
+  <div class="box" onclick="toggleElements()">
+    <div class="square" id="square"></div>
+    <div class="rectangle" id="rectangle"></div>
   </div>
 
   <script>
-    function toggleRectangle() {
+    function toggleElements() {
+      const square = document.getElementById('square');
       const rect = document.getElementById('rectangle');
-      rect.classList.toggle('hidden');
+      
+      square.classList.toggle('rotated');
+      rect.classList.toggle('visible');
     }
   </script>
 
