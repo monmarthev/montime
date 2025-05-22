@@ -3,17 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carré centré avec rectangle</title>
+    <title>MonTime</title>
     <style>
         body {
-            margin: 0;
-            padding: 0;
-            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #f0f0f0;
-            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            font-family: Inter, sans-serif;
         }
 
         .container {
@@ -22,9 +19,9 @@
             gap: 0;
         }
 
-        .square {
-            width: 100px;
-            height: 100px;
+        .button {
+            width: 50px;
+            height: 50px;
             background-color: #3498db;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.5s ease;
@@ -32,15 +29,13 @@
             justify-content: center;
             align-items: center;
             color: white;
-            font-weight: bold;
-            border-radius: 8px;
         }
 
-        .square.rotated {
+        .button.rotated {
             transform: rotate(-180deg);
         }
 
-        .square:hover {
+        .button:hover {
             background-color: #2980b9;
         }
 
@@ -76,10 +71,10 @@
 </head>
 <body>
     <div class="container">
-        <div class="square" onclick="toggleRectangle()">
-            <img src="arrow.svg" alt="Arrow" style="width: 100px; height: 100px;">
+        <div class="button" onclick="toggleRectangle()">
+            <img src="arrow.svg" alt="Arrow" style="width: 50px; height: 50px;">
         </div>
-        <div class="rectangle" id="rectangle">
+        <div class="content" id="content">
             <div class="rectangle-content">Rectangle</div>
             <div class="rectangle-content">Rectangle</div>
         </div>
@@ -87,8 +82,8 @@
 
     <script>
         function toggleRectangle() {
-            const rectangle = document.getElementById('rectangle');
-            const square = document.querySelector('.square');
+            const content = document.getElementById('content');
+            const button = document.querySelector('.button');
             
             rectangle.classList.toggle('show');
             square.classList.toggle('rotated');
