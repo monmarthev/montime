@@ -1,51 +1,58 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MonTime</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <title>Box centrée avec carré</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f0f0f0;
+      padding: 20px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .square {
+      width: 100px;
+      height: 100px;
+      background: red;
+      margin-right: 10px;
+    }
+
+    .rectangle {
+      width: 150px;
+      height: 100px;
+      background: blue;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <img src="logo.svg" alt="Logo MonTime" class="logo" />
-    <div class="title-block">
-      <h1>MonTime</h1>
-      <p class="subtitle">Le timer Pomodoro minimaliste.</p>
-    </div>
-  </header>
 
-  <main>
-    <section class="feature">
-      <div class="media-placeholder"></div>
-      <div class="text">
-        <h2>Fonctionnalité 1</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti.</p>
-      </div>
-    </section>
+  <div class="box" onclick="toggleRectangle()">
+    <div class="square"></div>
+    <div class="rectangle hidden" id="rectangle"></div>
+  </div>
 
-    <section class="feature reverse">
-      <div class="media-placeholder"></div>
-      <div class="text">
-        <h2>Fonctionnalité 2</h2>
-        <p>Nulla facilisi. Aenean nec libero nec nulla porta ullamcorper sit amet nec risus.</p>
-      </div>
-    </section>
+  <script>
+    function toggleRectangle() {
+      const rect = document.getElementById('rectangle');
+      rect.classList.toggle('hidden');
+    }
+  </script>
 
-    <section class="feature">
-      <div class="media-placeholder"></div>
-      <div class="text">
-        <h2>Fonctionnalité 3</h2>
-        <p>Integer feugiat, orci at porttitor egestas, massa sem sodales augue, id porta ex justo et urna.</p>
-      </div>
-    </section>
-  </main>
-
-  <a href="https://github.com/monmarthev/montime/blob/main/style.css" class="download-btn">
-    Download MonTime
-  </a>
 </body>
 </html>
